@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
+
+
+
+.graph-height {
+		height: 400px;
+}
+
+.stock-list-height {
+		height: 100%;
+}
+
+.footer {
+	margin-top: 5px;
+	padding-left: 10px;
+	
+}
+
+body {
+	background-color: black;
+}
+
+
+.footer-source {
+	border-top: 1px solid white;
+}
+
+
+@media screen and (min-width: 980px) /* Desktop */ {
+ 	.stock-list-height {
+		height: 600px;
+		overflow-y: scroll; 
+		}
+		
+	
+	.footer {
+		margin-top: 100px;
+	}
+	
+	body {
+		background-color: #e6f2ff;
+	}
+	
+	.footer-source {
+		padding-right: 20px;
+		border-top: 0px solid white;
+		text-align: right;
+	}
+	
+	
+}

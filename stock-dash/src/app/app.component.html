@@ -1,0 +1,74 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<ng-template #StockAddTemplate>
+	<div class="modal-header">
+		<h4 class="modal-title pull-left">Add New Stock</h4>
+		<button type="button" class="close pull-right" aria-label="Close"
+			(click)="modalRef.hide()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<input [(ngModel)]="modalSelectedStock" class="w-100" />
+	
+	</div>
+
+	<div class="modal-footer">
+		<button type="button" (click)="onStockAddModal()"
+			class="btn btn-primary">Submit</button>
+	</div>
+
+</ng-template>
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><i class="fa fa-dollar mr-2 pl-2 pr-2 pt-1 pb-1 border rounded text-primary"></i>{{title}}</a>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-8 pt-2">
+			<div class="card border border-primary">
+				<div class="card-body">
+					<h4 class="card-title p-2 border border-black rounded text-light bg-primary">{{selectedStock}}</h4>
+					<div class="row">
+						<div class="col">
+							<ul class="nav nav-tabs nav-fill">
+								<li *ngFor="let delay of DelayList" class="nav-item">
+									<a class="nav-link" [class.active]="SelectedDelay===delay" href="#" (click)="onDelayClick(delay)">{{delay}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<app-chart [multi]="multi"></app-chart>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4 pt-2">
+			<div class="card border border-primary" >
+				<div class="card-body stock-list-height">
+					<h4 class="card-title">Stock List</h4>
+					<ul class="list-group list-group-flush">
+						<li *ngFor="let stock of StockList" class="list-group-item"
+							[class.active]="selectedStock===stock"
+							(click)="onStockClick(stock)">{{stock}}</li>
+						
+						<li class="list-group-item" (click)="onStockAdd(StockAddTemplate)">
+							<span class="fa fa-plus"></span>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+ <div class="row bg-dark text-danger footer">
+<div class="col-lg footer-dev">@vishal.shujalpurkar</div>
+<div class="col-lg footer-source "><a class="text-danger" target="_blank" href="https://www.alphavantage.co/documentation/">alphavantage.co</a></div>
+</div>
